@@ -1,5 +1,5 @@
 ---
-title: ViT Case Study（Human Activity Recognition）
+title: ViTCaseStudy-HumanActivityRecognition
 tags: Kaggle kotaniken Python ViT
 author: NakagawaRen
 slide: false
