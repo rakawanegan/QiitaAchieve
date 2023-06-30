@@ -4,35 +4,31 @@ tags: kotaniken
 author: NakagawaRen
 slide: false
 ---
-# Human Activity Recognition Based on Residual Network and BiLSTM
+# inertial-based human activity recogniton with transformers
 
-2022年に発表されたBiLSTMとCNNを組み合わせたモデルを提案した論文。  
+2021年に発表された論文。  
 
-構造としては残差写像としてCNNを使用し、Flattenした後にBiLSTMをかけたもの。  
-画像は論文から引用。  
-![image.png](image/image.png)  
+被引用数は18件で、ACCは89.6%と精度は高くはないがTransformerを使用したユースケースとして有用であると判断した。  
 
-
-BiLSTMは順方向と逆方向の2つの方向についてLSTMで計算したものを並べたもの。  
-活性化関数はtanhであった。  
-
-データの前処理として正規化（ノンパラメトリックな軸方向の層正規化）をしている。  
-
-結果として今回の実験でSoTA（ACC:97.32）を達成した。  
-
-「Walking」以外の加速度計から生成されるデータは似ているため混同されやすいとあった。  
-以下は「Upstars」と「Downstars」だが確かに人の目では見分けがつかない。  
+以下はTransformerのアーキテクチャである。  
 
 ![image.png](image/image.png)  
 
-従来のモデルとの比較も行われていた。  
-以下に表を示す。  
+前処理について、  
+Conv．Backboneでは、4層の畳み込み層（活性化関数はGERU）で埋め込みを行う。  
+それにBERTと同じxclsを加え、  
+位置エンコーディングは学習可能な埋め込みを用いている。  
 
-|model|CNN|TSE-CNN|SC-CNN|CNN-GRU|LSTM-CNN|BiLSTM-CNN|  
-|-----|---|-------|------|--------|---------|--------|  
-|ACC(%)|93.32|95.7|97.08|97.21|95.01  |97.31          |  
-|params| -|9223|-|1176972|-|62598|71462              |  
+ハイパーパラメータは以下の通りであった。  
+ハイパーパラメータ探索方法・探索結果については記述がなかった。  
 
+|params|d|L|head|Dropout rate|  
+|------|-|-|----|------------|  
+|value |64|6 |8 |     0.1    |  
 
-## 元論文
-https://www.mdpi.com/1424-8220/22/2/635  
+### ソースコード
+
+https://github.com/yolish/har-with-imu-transformer  
+
+### 元論文
+https://ieeexplore.ieee.org/document/9393889  
