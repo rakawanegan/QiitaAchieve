@@ -62,17 +62,6 @@ class ConvBackbone(nn.Module):
 
 
 
-ハイパーパラメータ探索を行わない単純なモデルのコードを以下に実装した。  
-
-https://github.com/rakawanegan/HumanActivityRecognition/blob/master/convbackbone_transformer.py  
-
-また、Optunaでハイパーパラメータ探索を行ったコードを以下に実装した。  
-
-https://github.com/rakawanegan/HumanActivityRecognition/blob/master/optuna_convbackbone_transformer.py  
-
-どちらのコードも依存ローカルモジュールは存在しないため、以下のCSVファイルをダウンロードすることでローカルで再現可能である。  
-
-https://github.com/rakawanegan/HumanActivityRecognition/blob/master/data/WISDM_ar_v1.1.csv  
 
 
 実装結果について。  
@@ -91,10 +80,6 @@ https://github.com/rakawanegan/HumanActivityRecognition/blob/master/data/WISDM_a
 | パラメータ     | hidden_ch    | depth    | heads    | mlp_dim   | dropout    | emb_dropout | batch_size |  
 |--------------|--------------|----------|----------|------------|------------|-------------|------------|  
 | 値             | 15           | 3        | 3        | 1024       | 0.01       | 0.01        | 64         |  
-
-また、探索の詳細（0.90以上のスコアのパラメータに絞込）については以下から参照できる。  
-
-https://github.com/rakawanegan/HumanActivityRecognition/blob/master/results/preconvtransformer_y.log_pcs.csv  
 
 Optunaによって得られたハイパーパラメータを元に再度スクラッチから学習させた。  
 結果、37EPOCHでEarly Stoppingし、ACC=0.91でローカルでの最良スコア0.89を更新した。  

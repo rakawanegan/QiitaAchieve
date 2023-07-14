@@ -57,11 +57,6 @@ def is_worse(losslist, ref_size, axis="minimize"):
 
 従来は20EPOCH程度でEarly Stoppingがかかっていたが、このEarly Stopping方法を採用した結果134EPOCHでEarly Stoppingがかかった。  
 
-学習経過は以下から参照できる。  
-損失関数は交差エントロピー誤差の為、0に近いほど良いことに注意。  
-
-https://github.com/rakawanegan/HumanActivityRecognition/blob/master/results/conv_backbone_of.log  
-
 以上が変更点である。  
 
 なお、今回の学習にOptunaは用いておらずOptunaを用いることでさらなるスコア向上の可能性もある。  
