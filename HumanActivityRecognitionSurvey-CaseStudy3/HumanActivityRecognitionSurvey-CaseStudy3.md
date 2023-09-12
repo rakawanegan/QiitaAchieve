@@ -10,7 +10,7 @@ slide: false
 
 構造としては残差写像としてCNNを使用し、Flattenした後にBiLSTMをかけたもの。  
 画像は論文から引用。  
-![image.png](image/image.png)  
+![image.png](image/EImltLK4rE.png)  
 
 
 BiLSTMは順方向と逆方向の2つの方向についてLSTMで計算したものを並べたもの。  
@@ -23,7 +23,7 @@ BiLSTMは順方向と逆方向の2つの方向についてLSTMで計算したも
 「Walking」以外の加速度計から生成されるデータは似ているため混同されやすいとあった。  
 以下は「Upstars」と「Downstars」だが確かに人の目では見分けがつかない。  
 
-![image.png](image/image.png)  
+![image.png](image/XMhaE2DEWF.png)  
 
 従来のモデルとの比較も行われていた。  
 以下に表を示す。  

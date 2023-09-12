@@ -149,16 +149,16 @@ plt.savefig(path)
 ```  
 
 1D-Vision Transformer(not scheduling)  
-![image.png](image/image.png)  
+![image.png](image/LHh6x2fJiY.png)  
 
 1D-Vision Transformer(cosine scheduling)  
-![image.png](image/image.png)  
+![image.png](image/azimMoQFlD.png)  
 
 Conv.backbone Transformer(not scheduling)  
-![image.png](image/image.png)  
+![image.png](image/3xjPKxQ3er.png)  
 
 Conv.backbone Transformer(cosine scheduling)  
-![image.png](image/image.png)  
+![image.png](image/aEHmTXPsy5.png)  
 
 
 それぞれの損失曲線を比較する。  

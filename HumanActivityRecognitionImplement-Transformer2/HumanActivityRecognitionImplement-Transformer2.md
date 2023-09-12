@@ -11,7 +11,7 @@ https://qiita.com/NakagawaRen/items/45a8e106faf818f2162d
 
 結果としてACC：0.9187573356807514からACC:0.94まで大幅にスコアが向上した。  
 
-![image.png](image/image.png)  
+![image.png](image/sJMxXLUtrZ.png)  
 
 やはり論文に記載されていたようにUp-Downの判別は難しいようだ。  
 また、論文に記載こそされていなかったがWalk-Up-Downの区別が難しいのも論文通りである。  

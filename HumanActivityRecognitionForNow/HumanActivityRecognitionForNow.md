@@ -58,14 +58,14 @@ WISDM(Wireless Sensor Data Mining)datasetは2010年に携帯電話を用いて�
 
 また、加速度データはx,y,zの3軸を持っており、それぞれ以下の画像の軸方向を持つ。  
 
-![image.png](image/image.png)  
+![image.png](image/ujiUXc0q09.png)  
 
 値について、-20m/s^2から20m/s^2の範囲をとる。  
 これには重力を含んでいるため、常に鉛直方向に約10m/s^2程度のバイアスが加わる。  
 しかし、画像の軸のとり方からわかるように常にｙ軸にのみ重力加速度が加わっているわけではない。  
 つまり、単純にｙ軸の値全てにマイナス10をしても重力加速度は無視できない。  
 
-![image.png](image/image.png)  
+![image.png](image/iUtVrSpj8E.png)  
 
 次に、上記の画像から推察できるそれぞれの行動状態についての特徴をまとめる。  
 
@@ -132,7 +132,7 @@ Conv.backboneで計算後に線形変換を行うことで任意の次元、チ�
 
 https://github.com/rakawanegan/humanactivityrecognition_portfolio/blob/master/result/0726_optuna_vit1d_0/processed/lab_notebook.md  
 
-![image.png](image/image.png)  
+![image.png](image/MWscrgnFWf.png)  
 | 1dvit | precision | recall | f1-score | support |  
 | --- | --- | --- | --- | --- |  
 |  |  
@@ -155,7 +155,7 @@ Execution time： 13 min 30 sec
 
 https://github.com/rakawanegan/humanactivityrecognition_portfolio/blob/master/result/0911_convbbt_4/processed/lab_notebook.md  
 
-![image.png](image/image.png)  
+![image.png](image/04FxXitOR6.png)  
 | convbbt | precision | recall | f1-score | support |  
 | --- | --- | --- | --- | --- |  
 |  |  
@@ -178,7 +178,7 @@ Execution time： 9 min 13 sec
 
 https://github.com/rakawanegan/humanactivityrecognition_portfolio/blob/master/result/0716_cnn1d_tf/processed/lab_notebook.md  
 
-![image.png](image/image.png)  
+![image.png](image/dpnGLWzUXP.png)  
 | 1dcnn | precision | recall | f1-score | support |  
 | --- | --- | --- | --- | --- |  
 |  |  
@@ -243,7 +243,7 @@ ACC=28.1%でありランダムに予測するよりはマシ程度でうまく�
 
 コサイン学習率減衰は以下の式で定義される。  
 
-![image.png](image/image.png)  
+![image.png](image/PfdXe5vbkd.png)  
 
 Adamとの相性が悪かったのか、そもそも必要なかったのかは判断がついていない。  
 
