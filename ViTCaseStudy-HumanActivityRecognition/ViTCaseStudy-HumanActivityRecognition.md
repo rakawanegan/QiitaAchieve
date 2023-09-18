@@ -12,7 +12,7 @@ Human Activity Recognitionはデータサイエンスコンペティションプ
 ワイヤレスセンサデータから得られたx-y-z軸の3チャネルから成る時系列データを入力として用い、目的変数として人の状態「座る」「立つ」「歩く」「小走り」「昇る」「降りる」の6状態に分類する。  
 
 以下の画像は「降りる」ラベルのデータの一例である。  
-![download.png](image/aaXXX8CjUl.png)  
+![download.png](image/28skEUldEG.png)  
 
 次元としては80×3のデータであり、サンプル数は27454個である。  
 
@@ -100,7 +100,7 @@ https://arxiv.org/pdf/1809.08113.pdf
 | Macro Avg   |   0.94    |  0.93  |   0.94   |  9060   |  
 | Weighted Avg|   0.95    |  0.95  |   0.95   |  9060   |  
 
-![tf1dcnn_predict.png](image/hSaRlkEkiR.png)  
+![tf1dcnn_predict.png](image/xH86x6yud2.png)  
 
 # 一次元におけるViTの処理
 
@@ -154,7 +154,7 @@ Optunaの探索空間
 | macro avg    |   0.86    |  0.85  |   0.85   |   9060  |  
 | weighted avg | 0.90    |  0.90  |   0.90   |   9060  |  
 
-![vit1d_predict.png](image/jnAZQeyvWt.png)  
+![vit1d_predict.png](image/klKZSmUny1.png)  
 
 
 # 問題点の考察

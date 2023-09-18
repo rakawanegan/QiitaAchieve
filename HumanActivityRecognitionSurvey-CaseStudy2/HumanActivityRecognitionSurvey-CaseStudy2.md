@@ -36,7 +36,7 @@ TransformerのハイパーパラメータについてはWanDB Sweep Toolを用�
 合計パラメータ数は1,428,127個であった。  
 
 学習後の位置エンコーディングの画像が以下である。  
-![KU-HAR-PE.png](image/U3dduKW30Q.png)  
+![KU-HAR-PE.png](image/aDWH7tvm6u.png)  
 
 ### ソースコード
 https://github.com/markub3327/HAR-Transformer  
