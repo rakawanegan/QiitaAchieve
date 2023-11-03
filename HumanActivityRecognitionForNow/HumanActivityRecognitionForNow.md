@@ -13,6 +13,7 @@ slide: false
 [結果](#結果)  
 [工夫した点](#工夫した点)  
 [試したこと](#試したこと)  
+[誤分類したデータについて](#誤分類したデータについて)  
 [ソースコード](#ソースコード)  
 [参考文献](#参考文献)  
 [補足情報目次](#補足情報目次)  
@@ -58,14 +59,14 @@ WISDM(Wireless Sensor Data Mining)datasetは2010年に携帯電話を用いて�
 
 また、加速度データはx,y,zの3軸を持っており、それぞれ以下の画像の軸方向を持つ。  
 
-![image.png](image/FRCdxNvMuj.png)  
+![image.png](image/h6NQlPLpJl.png)  
 
 値について、-20m/s^2から20m/s^2の範囲をとる。  
 これには重力を含んでいるため、常に鉛直方向に約10m/s^2程度のバイアスが加わる。  
 しかし、画像の軸のとり方からわかるように常にｙ軸にのみ重力加速度が加わっているわけではない。  
 つまり、単純にｙ軸の値全てにマイナス10をしても重力加速度は無視できない。  
 
-![image.png](image/6m6cP4jYml.png)  
+![image.png](image/tx42iOvIHf.png)  
 
 次に、上記の画像から推察できるそれぞれの行動状態についての特徴をまとめる。  
 
@@ -119,10 +120,14 @@ ViTはxyz軸を柵状に等間隔で切り出しそれぞれをアフィン変�
 出力の素となるCLSトークンを加えD×(N+1)の系列データにする  
 
 
-### Conv．Backbone1 Transformerでの処理
+### Conv．Backbone Transformerでの処理
+
+![image.png](image/safAxnQqjo.png)  
+
+
 Conv．Backboneでは、4層の点単位畳み込み層（活性化関数はGERU）で埋め込みを行う。  
-ViTと同様にCLSトークンを加え、  
-位置エンコーディングとして学習可能な埋め込みを行う。  
+点単位畳み込み層は入力が3次元のFFNを作用させているとも解釈することができる。  
+ViTと同様にCLSトークンを加え、位置エンコーディングとして学習可能な埋め込みを行う。  
 Conv.backboneで計算後に線形変換を行うことで任意の次元、チャンネル数でTransformerに入力することができる。  
 
 
@@ -132,7 +137,7 @@ Conv.backboneで計算後に線形変換を行うことで任意の次元、チ�
 
 https://github.com/rakawanegan/humanactivityrecognition_portfolio/blob/master/result/0726_optuna_vit1d_0/processed/lab_notebook.md  
 
-![image.png](image/DseUdgWStb.png)  
+![image.png](image/12PjSANI1c.png)  
 | 1dvit | precision | recall | f1-score | support |  
 | --- | --- | --- | --- | --- |  
 |  |  
@@ -155,7 +160,7 @@ Execution time： 13 min 30 sec
 
 https://github.com/rakawanegan/humanactivityrecognition_portfolio/blob/master/result/0911_convbbt_4/processed/lab_notebook.md  
 
-![image.png](image/M8vQjrOn6s.png)  
+![image.png](image/am2kgnHn8X.png)  
 | convbbt | precision | recall | f1-score | support |  
 | --- | --- | --- | --- | --- |  
 |  |  
@@ -176,25 +181,26 @@ Execution time： 9 min 13 sec
 
 ### 1-Dimensional Convolutional Neural Network
 
-https://github.com/rakawanegan/humanactivityrecognition_portfolio/blob/master/result/0716_cnn1d_tf/processed/lab_notebook.md  
+https://github.com/rakawanegan/humanactivityrecognition_portfolio/blob/master/result/0921_cnn1d_tf_0/processed/lab_notebook.md  
 
-![image.png](image/wrnsvp5RBJ.png)  
+![image.png](image/AUJZpDR6US.png)  
+
 | 1dcnn | precision | recall | f1-score | support |  
 | --- | --- | --- | --- | --- |  
 |  |  
-| Downstairs | 0.85 | 0.85 | 0.85 | 824 |  
-| Jogging | 0.97 | 0.98 | 0.98 | 2832 |  
-| Sitting | 0.99 | 0.97 | 0.98 | 501 |  
-| Standing | 0.98 | 0.97 | 0.97 | 410 |  
-| Upstairs | 0.89 | 0.82 | 0.85 | 1025 |  
-| Walking | 0.97 | 0.99 | 0.98 | 3468 |  
+| Downstairs | 0.82 | 0.88 | 0.85 | 755 |  
+| Jogging | 0.97 | 0.97 | 0.97 | 2586 |  
+| Sitting | 0.99 | 0.98 | 0.99 | 461 |  
+| Standing | 0.97 | 0.96 | 0.97 | 352 |  
+| Upstairs | 0.87 | 0.81 | 0.84 | 917 |  
+| Walking | 0.98 | 0.98 | 0.98 | 3166 |  
 |  |  
-|  accuracy || | 0.95 | 9060 |  
-| macro | avg | 0.94 | 0.93 | 0.93 | 9060 |  
-| weighted | avg | 0.95 | 0.95 | 0.95 | 9060 |  
+|  accuracy || | 0.95 | 8237 |  
+| macro | avg | 0.93 | 0.93 | 0.93 | 8237 |  
+| weighted | avg | 0.95 | 0.95 | 0.95 | 8237 |  
 
 Model size： 2.67 MB  
-Execution time： 3 min 35 sec  
+Execution time： 3 min 38 sec  
 
 
 
@@ -243,9 +249,42 @@ ACC=28.1%でありランダムに予測するよりはマシ程度でうまく�
 
 コサイン学習率減衰は以下の式で定義される。  
 
-![image.png](image/73ixsFUOLR.png)  
+![image.png](image/Lp8Zrk2lBQ.png)  
 
 Adamとの相性が悪かったのか、そもそも必要なかったのかは判断がついていない。  
+
+
+# 誤分類したデータについて
+結論として「立つ」「座る」といった静止するような行動において、誤分類したデータは人間から見てもおかしなデータであった。  
+このようなありえないラベリングが起こる原因としては以下のことが考えられる。  
+
+- ラベリングの際のヒューマンエラー（入力ミス等）  
+- 計測時、なんらかの要因で対象が動いてしまった。  
+
+どちらも100万のサンプルの内の数個であることから十分起こり得るミスであると考える。  
+特徴として、ｘｙｚ軸に似た値の変化が見られることから地面やスマートフォン本体が動いた可能性が高そうである。  
+しかし、このノイズを削減するべくｘ軸の値の相対量をとったが静止状態の特徴である重力加速度のバイアスが消えてしまった。  
+
+結果として以下のデータは、検知器の異常であると考え、諦めることとした。  
+理由はｘｙｚすべての軸が0m/s^2という状態は自由落下以外で起こりえず、自由落下が1秒も起こる状態というのは現実的に考えづらいからである。  
+
+以下にConv.backbone Transformerにおいて誤分類した静止状態のデータを列挙する。  
+
+## Sitting
+
+「座る」状態をその他状態として予測したものをまとめた。  
+![Sitting.gif](image/V6vA45rfv4.gif)  
+
+上のうち、一例についてｘ軸との相対量を計算した。  
+![relative_sitting.png](image/oaPhUHmoh3.png)  
+
+## Standing
+
+「立つ」状態をその他状態として予測したものをまとめた。  
+![Standing.gif](image/UuXxgfvty8.gif)  
+
+上のうち、一例についてｘ軸との相対量を計算した。  
+![relative_standing.png](image/n7FZu3nTVl.png)  
 
 
 

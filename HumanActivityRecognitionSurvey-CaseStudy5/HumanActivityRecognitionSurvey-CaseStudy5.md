@@ -12,7 +12,7 @@ slide: false
 
 以下はTransformerのアーキテクチャである。  
 
-![image.png](image/KyKqAD8RLe.png)  
+![image.png](image/uxDsHUXuIO.png)  
 
 前処理について、  
 Conv．Backboneでは、4層の畳み込み層（活性化関数はGERU）で埋め込みを行う。  
